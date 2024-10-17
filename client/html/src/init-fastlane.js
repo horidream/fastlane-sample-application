@@ -42,7 +42,7 @@ async function initFastlane() {
         // },
       },
     });
-
+    window.identity = identity;
     const paymentComponent = await FastlanePaymentComponent();
 
     (
@@ -197,6 +197,7 @@ async function initFastlane() {
             memberAuthenticatedSuccessfully = true;
             shippingAddress = authResponse.profileData.shippingAddress;
             paymentToken = authResponse.profileData.card;
+            console.log(authResponse.profileData);
           }
         } else {
           // user was not recognized
